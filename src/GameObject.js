@@ -1,4 +1,4 @@
-const gameObject = {
+const gameState = {
   currentPot: 0,
   currentBettingRound: {
     isPreflop: false,
@@ -95,4 +95,4 @@ const gameObject = {
   ]
 }
 
-export default gameObject
+export default gameState

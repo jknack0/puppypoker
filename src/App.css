@@ -1,5 +1,23 @@
-.App-logo {
-  height: 40vmin;
+#app {
+  text-align: center;
+  width: 900px;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: #282c34;
+  color: white;
+}
+
+.nav-links{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
 }
 
 .App-header {
