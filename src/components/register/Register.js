@@ -47,13 +47,11 @@ const Register = () => {
           alert('You have successfully registered please log in to play!')
           history.push('/')
         })
-        console.log(newUserObject)
     }
-
   }
 
   return (
-    <div>
+    <div class="user-input">
       <h2>Register</h2>
       <form onSubmit={submitNewUser}>
         <label>Username:</label>

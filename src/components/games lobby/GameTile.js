@@ -5,8 +5,8 @@ const GameTile = ({gameId, players}) => {
   const address = `gameslobby/${gameId}`
 
   return (
-    <div>
-      {gameId} {players}/9 <Link to={address}>Join</Link>
+    <div id="games-lobby-items">
+      Game:{gameId} Players: {players}/9 <Link to={address}>Join</Link>
     </div>
   )
 }
