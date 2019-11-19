@@ -37,6 +37,10 @@
   border-radius: 3px;
 }
 
+.landing-button:hover {
+  border-color: black;
+}
+
 .user-input {
   text-align: center;
 }
@@ -71,6 +75,10 @@ input {
 }
 
 input[type=submit] {
+  width: 50%;
+}
+input[type=submit]:hover {
+  border-color: black;
   width: 50%;
 }
 
