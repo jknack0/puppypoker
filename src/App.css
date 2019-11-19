@@ -1,11 +1,48 @@
-#app {
+* {
+    margin:0;
+    padding:0;
+    border:0;
+  }
+
+#root {
   text-align: center;
-  width: 98.5vw;
-  margin:0px;
+  background: rgb(34, 107, 60);
+  width: 100vw;
+  height: 100vh;
 }
 
-h2 {
-  font-size: 2.2em;
+#main-logo {
+  max-width: 70vw;
+  z-index: -1;
+}
+
+#login {
+  position: absolute;
+  bottom: 8%;
+  left: 20%;
+}
+
+#register {
+  position: absolute;
+  bottom: 8%;
+  right: 18%;
+}
+
+.landing-button {
+  width: 160px;
+  height: 60px;
+  font-size: 25px;
+  background:rgb(185, 185, 185);
+  border: 3px solid white;
+  border-radius: 3px;
+}
+
+.user-input {
+  text-align: center;
+}
+
+#login-logo {
+  width: 40vw;
 }
 
 a {
@@ -24,60 +61,29 @@ a {
 }
 
 input {
-  width: 100%;
-  padding: 10px 18px;
-  margin: 8px 0;
-  box-sizing: border-box;
+  margin-bottom: 4%;
+  padding: 15px;
+  background-color: rgb(184, 184, 184);
+  border: solid white 3px;
+  color: black;
+  font-size: 20px;
+  border-radius: 3px;
 }
 
 input[type=submit] {
-  background: rgb(47, 150, 34);
-  color: white;
-  font-size: 1em;
-  border-radius: 10px;
+  width: 50%;
 }
 
 form {
-  margin: 0 40%;
+  margin: 0 35%;
   text-align: center;
 }
 
-label {
-  float: left;
-  font-size: 18px;
+#register-logo {
+  width: 30vw;
 }
 
-nav{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background: #282c34;
-  color: white;
-  padding: 12px;
-  font-size: 20px;
-}
-
-.nav-links{
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
- .player{
+.player{
   width: 150px;
   height: 80px;
   padding: 0px;
@@ -135,11 +141,6 @@ nav{
  border-radius: 10px;
  margin-top: 40px;
  margin-left: 30px;
-}
-
-#root{
-  width: 750px;
-  height:250px;
 }
 
 #player0{

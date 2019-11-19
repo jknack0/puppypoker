@@ -3,8 +3,8 @@ import loginServices from '../../services/login'
 import history from '../../history/history'
 
 const Login = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [username, setUsername] = useState('Username')
+  const [password, setPassword] = useState('Password')
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value)
@@ -39,11 +39,9 @@ const Login = () => {
 
   return (
     <div class="user-input">
-      <h2>Login</h2>
+      <img src='mainLogo.png' id='login-logo'/>
       <form onSubmit={submitForm}>
-        <label>Username:</label>
         <input type='text' value={username} onChange={handleUsernameChange} /><br/>
-        <label>Password:</label>
         <input type='password' value={password} onChange={handlePasswordChange} /><br />
         <input type='submit' value='Login' />
       </form>
