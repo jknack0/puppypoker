@@ -52,16 +52,12 @@ const Register = () => {
 
   return (
     <div class="user-input">
-      <h2>Register</h2>
+      <img src='mainLogo.png' id='register-logo'/>
       <form onSubmit={submitNewUser}>
-        <label>Username:</label>
-        <input type='text' onChange={handleUsernameChange} /><br />
-        <label>Password:</label>
-        <input type='password' onChange={handlePasswordChange} /><br />
-        <label>Repeat Password:</label>
-        <input type='password' onChange={handleRepeatPasswordChange} /><br />
-        <label>Email:</label>
-        <input type="email" onChange={handleEmailChange} /><br />
+        <input type='text' onChange={handleUsernameChange} value='Username'/><br />
+        <input type='password' onChange={handlePasswordChange} value='Password'/><br />
+        <input type='password' onChange={handleRepeatPasswordChange} value='Password'/><br />
+        <input type="email" onChange={handleEmailChange} value='Email'/><br />
         <input type='submit' value='Register'/>
       </form>
     </div>

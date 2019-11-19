@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import GameTile from './GameTile'
+import gamesLobbyServices from '../../services/gameslobby'
+import history from '../../history/history'
 
 const GamesLobby = () => {
   const [games, setGames] = useState([])
@@ -28,8 +30,12 @@ const GamesLobby = () => {
   ]
 
   useEffect(() => {
-   setGames(gamesArray) 
-  },[])
+    gamesLobbyServices
+      .getAllGames()
+      .then(currentGames => {
+        setGames(currentGames)
+      })
+  }, [])
 
   return (
     <div>
