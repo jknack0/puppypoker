@@ -2,7 +2,6 @@ import {createStore} from 'redux'
 
 const initialState = {
   username: '',
-  
 }
 
 const userReducer = (state = initialState, action) => {
