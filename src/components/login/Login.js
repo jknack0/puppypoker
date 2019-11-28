@@ -27,16 +27,17 @@ const Login = () => {
       loginServices
         .login(loginObject)
         .then(() => {
-          history.push('/gameslobby')
-        })
-        .catch(error => {
           userStore.dispatch({
             type: 'LOGIN_USER',
             data: {
               username: loginObject.username
             }
           })
-          console.log(userStore.getState())
+          history.push('/gameslobby')
+        })
+        .catch(error => {
+          alert('User not found, please try again.')
+          history.push('/login')
         })
       }
   }
@@ -45,8 +46,8 @@ const Login = () => {
     <div className="user-input">
       <img src='mainLogo.png' id='login-logo' alt='Logo for puppy poker' />
       <form onSubmit={submitForm}>
-        <input type='text' value={username} onChange={handleUsernameChange} /><br/>
-        <input type='password' value={password} onChange={handlePasswordChange} /><br />
+        <input type='text' value={username} onChange={handleUsernameChange} placeholder="Username" /><br/>
+        <input type='password' value={password} onChange={handlePasswordChange} placeholder="Password" /><br />
         <input type='submit' value='Login' />
       </form>
     </div>
