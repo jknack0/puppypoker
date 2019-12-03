@@ -51,8 +51,8 @@ const Register = () => {
   }
 
   return (
-    <div class="user-input">
-      <img src='mainLogo.png' id='register-logo'/>
+    <div className="user-input">
+      <img src='mainLogo.png' id='register-logo' alt='Logo for puppy poker' />
       <form onSubmit={submitNewUser}>
         <input type='text' onChange={handleUsernameChange} value='Username'/><br />
         <input type='password' onChange={handlePasswordChange} value='Password'/><br />

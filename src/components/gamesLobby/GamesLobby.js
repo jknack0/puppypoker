@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import GameTile from './GameTile'
-import gamesLobbyServices from '../../services/gameslobby'
+import gamesLobbyServices from '../../services/gamesLobby'
 import history from '../../history/history'
 import {Link} from 'react-router-dom'
 
