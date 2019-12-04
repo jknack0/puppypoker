@@ -57,7 +57,7 @@ class ChatBox extends Component {
                         {this.state.chatMsgs}
                     </div>
                     <form id='chatForm' onSubmit={this.handleSubmit} autoComplete='off'>
-                        <input type='text' placeholder='message' message='userMessage' value={this.state.userMessage} onChange={this.handleInputChange}></input>
+                        <input type='text' placeholder='Enter Message' message='userMessage' value={this.state.userMessage} onChange={this.handleInputChange}></input>
                     </form>
                 </div>
                 
