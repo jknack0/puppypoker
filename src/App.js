@@ -1,13 +1,12 @@
 import React from 'react'
 import Register from './components/register/Register'
 import Login from './components/login/Login'
-import GamesLobby from './components/games lobby/GamesLobby'
+import GamesLobby from './components/gamesLobby/GamesLobby'
 import GameTable from './components/game/GameTable'
 import LandingPage from './components/landing/LandingPage'
 import {Router, Switch, Route} from 'react-router-dom'
 import history from './history/history'
 import './App.css'
-
 
 const App = () => {
 

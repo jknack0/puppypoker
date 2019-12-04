@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import loginServices from '../../services/login'
 import history from '../../history/history'
+import userStore from '../../redux/userStore'
 
 const Login = () => {
   const [username, setUsername] = useState('Username')
@@ -23,26 +24,30 @@ const Login = () => {
         username: username,
         password: password,
       }
-      
       loginServices
         .login(loginObject)
         .then(() => {
-          setUsername('')
-          setPassword('')
-          history.push('/gametable')
+          userStore.dispatch({
+            type: 'LOGIN_USER',
+            data: {
+              username: loginObject.username
+            }
+          })
+          history.push('/gameslobby')
         })
         .catch(error => {
-          console.log(error)
+          alert('User not found, please try again.')
+          history.push('/login')
         })
       }
   }
 
   return (
-    <div class="user-input">
-      <img src='mainLogo.png' id='login-logo'/>
+    <div className="user-input">
+      <img src='mainLogo.png' id='login-logo' alt='Logo for puppy poker' />
       <form onSubmit={submitForm}>
-        <input type='text' value={username} onChange={handleUsernameChange} /><br/>
-        <input type='password' value={password} onChange={handlePasswordChange} /><br />
+        <input type='text' value={username} onChange={handleUsernameChange} placeholder="Username" /><br/>
+        <input type='password' value={password} onChange={handlePasswordChange} placeholder="Password" /><br />
         <input type='submit' value='Login' />
       </form>
     </div>
