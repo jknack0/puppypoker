@@ -4,8 +4,8 @@ import history from '../../history/history'
 import userStore from '../../redux/userStore'
 
 const Login = () => {
-  const [username, setUsername] = useState('Username')
-  const [password, setPassword] = useState('Password')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value)
