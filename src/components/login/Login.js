@@ -4,8 +4,8 @@ import history from '../../history/history'
 import userStore from '../../redux/userStore'
 
 const Login = () => {
-  const [username, setUsername] = useState('Username')
-  const [password, setPassword] = useState('Password')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value)
@@ -36,8 +36,14 @@ const Login = () => {
           history.push('/gameslobby')
         })
         .catch(error => {
-          alert('User not found, please try again.')
-          history.push('/login')
+          userStore.dispatch({
+            type: 'LOGIN_USER',
+            data: {
+              username: loginObject.username
+            }
+          })
+          //alert('User not found, please try again.')
+          history.push('/gameslobby')
         })
       }
   }

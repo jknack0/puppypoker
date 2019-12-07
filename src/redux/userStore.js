@@ -12,6 +12,8 @@ const userReducer = (state = initialState, action) => {
         username: action.data.username,
       }
       return userObject
+    case 'LOGOUT_USER': 
+      return initialState
     default:
       return state
   }

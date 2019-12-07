@@ -5,9 +5,10 @@ import history from '../../history/history'
 import {Link} from 'react-router-dom'
 import './gamesLobby.css'
 import ChatBox from '../chat/chat.jsx'
+import userStore from '../../redux/userStore'
 
 const GamesLobby = () => {
-  const [games, setGames] = useState([])
+  const [games, setGames] = useState(null)
 
   const gamesArray = [
     {
@@ -33,36 +34,41 @@ const GamesLobby = () => {
   ]
 
   useEffect(() => {
-    gamesLobbyServices
+    if(userStore.getState().username === '') {
+      history.push('/login')
+    }
+    setGames(gamesArray)
+    console.log(games)
+    /*gamesLobbyServices
       .getAllGames()
       .then(currentGames => {
         setGames(currentGames)
-      })
+      })*/
   }, [])
 
-  return (
-    <div>
-      {/* <h2>Games Lobby</h2> */}
-      {/* <p>{Grid}</p>
-      {games.map(game => <GameTile key={game.id} gameId={game.id} players={game.players} />)} */}
-      <div className='userInfo'>
-        {/* user section */}
-        {userBox()}
+  console.log(games)
+  if(games === null) {
+    return (
+      <h2>Loading...</h2>
+    )
+  } else {
+    return (
+      <div className='game-lobby-container'>
+        <div className='userInfo'>
+          {userBox()}
+        </div>
+        <div className='chat'>
+            <ChatBox/>
+        </div> 
+        <div className='games'>
+            {gameBoxes()}
+        </div>
+  
       </div>
-      <div className='chat'>
-          {/* chat section */}
-          {/* {Barks()} */}
-          <ChatBox/>
-      </div> 
-      <div className='games'>
-          game section
-          {gameBoxes()}
-      </div>
+    )
+  }
 
-    </div>
-
-    
-  )
+ 
 }
 const gameBoxes =() =>{
   return(
@@ -77,10 +83,15 @@ const gameBoxes =() =>{
 }
 
 const userBox = () =>{
+  const handleLogout = () => {
+    userStore.dispatch({type: 'LOGOUT_USER'})
+    history.push('/')
+  }
+
   return(
       <div>
         <div className='lobby-username'>
-          <h3>Username</h3>
+          <h2>{userStore.getState().username}</h2>
           
           </div>
           <div className='winnings'>
@@ -89,24 +100,10 @@ const userBox = () =>{
 
         <div className='userInfo'>
           <img src='profileIcon.png' id="profile-logo" />
-          
-          <button type="button" className='log-out'>Log Out</button><br/>
-          <button type="button" className='settings'>Settings</button><br/>
+          <button type="button" className='log-out' onClick={handleLogout}>Log Out</button><br/>
           <button type="button" className='create-game'>Create Game</button><br/>
           </div>
         </div>
-  )
-}
-
-const Barks = () => {
-
-  return(
-    <div>
-      <form>
-        <input type="text" placeholder="Enter Message" className='barks-box'></input>
-        <input type="submit" value="Send" title="Send" className='barks-send-button'></input>
-      </form>
-    </div>
   )
 }
 

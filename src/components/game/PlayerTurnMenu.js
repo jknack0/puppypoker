@@ -1,47 +1,77 @@
-import React, {useState} from 'react'
+import React from 'react'
+import playerTurnServices from '../../services/playerTurnMenu'
 
-const PlayerTurnMenu = ({gameState, setGameState}) => {
-  console.log(gameState)
-
+const PlayerTurnMenu = ({potRaised, playerTurn, gameId}) => {
   const handleCheck = () => {
-    const updatedGameState = {...gameState}
-    updatedGameState.currentPot += 100
-    console.log(gameState)
-    console.log(updatedGameState)
-    setGameState(updatedGameState)
+    playerTurnServices
+      .check(gameId)
+      .then(() => {
+        console.log('player checked')
+      })
+      .catch(() => {
+        console.log('player checked')
+      })
   }
   
   const handleBet = () => {
-
+    playerTurnServices
+    .bet(gameId)
+    .then(() => {
+      console.log('player bet')
+    })
+    .catch(() => {
+      console.log('player bet')
+    })
   }
 
   const handleCall = () => {
-    
+    playerTurnServices
+    .call(gameId)
+    .then(() => {
+      console.log('player call')
+    })
+    .catch(() => {
+      console.log('player call')
+    })
   }
 
   const handleRaise = () => {
-
+    playerTurnServices
+    .raise(gameId)
+    .then(() => {
+      console.log('player raise')
+    })
+    .catch(() => {
+      console.log('player raise')
+    })
   }
 
   const handleFold = () => {
-
+    playerTurnServices
+    .fold(gameId)
+    .then(() => {
+      console.log('player fold')
+    })
+    .catch(() => {
+      console.log('player fold')
+    })
   }
 
 
-  if(!gameState.potRaised){
+  if(!potRaised){
     return (
       <div className="player-turn-menu">
-        <button>Call</button>
-        <button>Raise</button>
-        <button onClick={handleCheck}>Fold</button>
+        <button onClick={handleCall}>Call</button>
+        <button onClick={handleRaise}>Raise</button>
+        <button onClick={handleFold}>Fold</button>
       </div>
     )
   } else {
     return (
       <div className="player-turn-menu">
-        <button>Check</button>
-        <button>Bet</button>
-        <button>Fold</button>
+        <button onClick={handleCheck}>Check</button>
+        <button onClick={handleBet}>Bet</button>
+        <button onClick={handleFold}>Fold</button>
       </div>
     )
   }
