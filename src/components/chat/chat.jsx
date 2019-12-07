@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ChatMsg from './msg'
 import './chat.css'
+import userStore from '../../redux/userStore'
 
 class ChatBox extends Component {
     
@@ -21,7 +22,7 @@ class ChatBox extends Component {
        // console.log('user message: ' + this.state.userMessage)
         if(this.state.userMessage.length !== 0)
         {
-            this.state.chatMsgs.push(<ChatMsg username='temp' msg={this.state.userMessage}></ChatMsg>)
+            this.state.chatMsgs.push(<ChatMsg username={userStore.getState().username} msg={this.state.userMessage}></ChatMsg>)
             this.setState({
                 userMessage: ''
             });
@@ -57,7 +58,7 @@ class ChatBox extends Component {
                         {this.state.chatMsgs}
                     </div>
                     <form id='chatForm' onSubmit={this.handleSubmit} autoComplete='off'>
-                        <input type='text' placeholder='message' message='userMessage' value={this.state.userMessage} onChange={this.handleInputChange}></input>
+                        <input type='text' className='chat-input'placeholder='message' message='userMessage' value={this.state.userMessage} onChange={this.handleInputChange}></input>
                     </form>
                 </div>
                 

@@ -1,3 +1,8 @@
+.game-lobby-container {
+    width: 100vw;
+    height: 100vh;
+}
+
 .game-tiles{
     position: relative;
     left: 20vh;
@@ -5,7 +10,7 @@
     border-radius: 3px;
     border: 3px solid white;
     padding: 20px;
-    width: 110vh;
+    width: 50vw ;
     height: 25vh;
     }
 
@@ -105,7 +110,7 @@ top: 30vh
             position:absolute;
             /* border-left: 1px solid black; */
             height: 100vh;
-            width: 70vh;
+            width: 70vw;
             left: 30vh;
 }
             

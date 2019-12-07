@@ -1,12 +1,6 @@
 const gameobject = {
   currentPot: 0,
-  currentBettingRound: {
-    isPreflop: false,
-    isFlop: false,
-    isTurn: false,
-    isRiver: false,
-    isOver: false,
-  },
+  currentBettingRound: 1,
   communityCards: [
     "AC", "AC", "AC", "AC", "AC"
   ],
