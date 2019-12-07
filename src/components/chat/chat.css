@@ -1,0 +1,39 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 63vh;
+}
+
+.content {
+
+    background: lightgray;
+    width: 39vh;
+
+
+
+}
+
+#chat-container {
+    flex-direction: column;
+    display: flex;
+    min-height: 100%;
+    color: gray;
+}
+
+#chat {
+    width:40vh;
+    height: 63vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 5px;
+    box-sizing: border-box;
+    /* border: solid black 2px */
+}
+
+input[type='text'] {
+    position: relative;
+    right: 13.7vh;
+    width: 38.4vh;
+    height: 5vh;
+    padding: 5px;
+}

@@ -54,10 +54,10 @@ const Register = () => {
     <div className="user-input">
       <img src='mainLogo.png' id='register-logo' alt='Logo for puppy poker' />
       <form onSubmit={submitNewUser}>
-        <input type='text' onChange={handleUsernameChange} value='Username'/><br />
-        <input type='password' onChange={handlePasswordChange} value='Password'/><br />
-        <input type='password' onChange={handleRepeatPasswordChange} value='Password'/><br />
-        <input type="email" onChange={handleEmailChange} value='Email'/><br />
+        <input type='text' onChange={handleUsernameChange} placeholder='Username' value={username}/><br />
+        <input type='password' onChange={handlePasswordChange} placeholder='Password' value={password}/><br />
+        <input type='password' onChange={handleRepeatPasswordChange} placeholder='Password' value={repeatPassword}/><br />
+        <input type="email" onChange={handleEmailChange} placeholder='Email' value={email}/><br />
         <input type='submit' value='Register'/>
       </form>
     </div>
