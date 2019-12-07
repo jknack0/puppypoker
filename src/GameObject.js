@@ -1,19 +1,19 @@
-const gameState = {
+const gameobject = {
   currentPot: 0,
   currentBettingRound: {
     isPreflop: false,
     isFlop: false,
     isTurn: false,
-    isRiver: true,
+    isRiver: false,
+    isOver: false,
   },
-  
   communityCards: [
     "AC", "AC", "AC", "AC", "AC"
   ],
   players: [
     {
       username: "player1",
-      isInHand: false,
+      isInHand: true,
       chipCount: 200,
       currentBet:0,
       holeCards: [
@@ -21,7 +21,7 @@ const gameState = {
       ]
     },
     {
-      username: null,
+      username: 'shit',
       isInHand: true,
       chipCount : 200,
       currentBet: 0,
@@ -95,4 +95,4 @@ const gameState = {
   ]
 }
 
-export default gameState
+export default gameobject
