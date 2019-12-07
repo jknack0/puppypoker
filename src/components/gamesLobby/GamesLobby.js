@@ -3,6 +3,8 @@ import GameTile from './GameTile'
 import gamesLobbyServices from '../../services/gamesLobby'
 import history from '../../history/history'
 import {Link} from 'react-router-dom'
+import './gamesLobby.css'
+import ChatBox from '../chat/chat.jsx'
 
 const GamesLobby = () => {
   const [games, setGames] = useState([])
@@ -48,8 +50,9 @@ const GamesLobby = () => {
         {userBox()}
       </div>
       <div className='chat'>
-          chat section
-          {Barks()}
+          {/* chat section */}
+          {/* {Barks()} */}
+          <ChatBox/>
       </div> 
       <div className='games'>
           game section
