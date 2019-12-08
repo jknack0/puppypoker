@@ -1,20 +1,38 @@
 import React, {useState, useEffect} from 'react'
 import Player from './Player'
 import CommunityCards from './CommunityCards'
-import gamestate from '../../GameObject'
+import gameobject from '../../GameObject'
 import PlayerTurnMenu from './PlayerTurnMenu'
+import gameServices from '../../services/gameTable'
 
-const GameTable = () => {
-  const [gameState, setGameState] = useState(gamestate)
-  
-  return (
-    <div id="table">
-      {gameState.players.map((player, index) => <Player key={player.username} player={player} index={index}/>)}
-      <CommunityCards cards={gameState.communityCards} currentBettingRound={gameState.currentBettingRound}/>
-      <PlayerTurnMenu gameState={gameState} setGameState={setGameState}/>
-    </div>
-     
-  )
+const GameTable = ({match}) => {
+  const [gameState, setGameState] = useState(null)
+  const gameId = match.params.id
+
+  useEffect(() => {
+    gameServices
+    .getGameState(gameId)
+    .then(initialGameState => {
+      setGameState(initialGameState)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  },[])
+
+  if(gameState === null){
+    return (
+      <div><h2>Loading...</h2></div>
+    )
+  } else {
+    return (
+      <div id="table">
+        {gameState.players.map((player, index) => <Player key={player.username} player={player} index={index} />)}
+        <CommunityCards cards={gameState.communityCards} currentBettingRound={gameState.currentBettingRound} />
+        <PlayerTurnMenu isRaised={gameState.isRaised} gameId={gameId} />
+      </div>
+    )
+  }
 }
 
 export default GameTable
