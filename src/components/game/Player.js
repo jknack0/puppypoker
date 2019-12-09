@@ -1,11 +1,25 @@
 import React from 'react'
 import Card from './Card'
+import playerServices from '../../services/player'
 
-const Player = ({player, index}) => {
+const Player = ({player, index, gameId}) => {
+  const joinGame = (event) => {
+    event.preventDefault()
+    
+    playerServices
+    .joinGame(gameId)
+    .then(() => {
+      console.log('success')
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+
   if(player.username === null) {
     return(
       <div id={`player${index}`}>
-        <button className="join-button  ">Join Game</button>
+        <button className="join-button" onClick={joinGame}>Join Game</button>
       </div>
     )
   } else if (player.isInHand) {

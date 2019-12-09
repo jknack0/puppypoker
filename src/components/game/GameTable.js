@@ -10,14 +10,15 @@ const GameTable = ({match}) => {
   const gameId = match.params.id
 
   useEffect(() => {
-    gameServices
+    setGameState(gameobject)
+   /* gameServices
     .getGameState(gameId)
     .then(initialGameState => {
       setGameState(initialGameState)
     })
     .catch(error => {
       console.log(error)
-    })
+    })*/
   },[])
 
   if(gameState === null){
@@ -27,7 +28,7 @@ const GameTable = ({match}) => {
   } else {
     return (
       <div id="table">
-        {gameState.players.map((player, index) => <Player key={player.username} player={player} index={index} />)}
+        {gameState.players.map((player, index) => <Player key={player.username} player={player} index={index} gameId={gameId} />)}
         <CommunityCards cards={gameState.communityCards} currentBettingRound={gameState.currentBettingRound} />
         <PlayerTurnMenu isRaised={gameState.isRaised} gameId={gameId} />
       </div>

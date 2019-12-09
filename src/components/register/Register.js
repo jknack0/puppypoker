@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import registerServices from '../../services/register'
 import history from '../../history/history'
+import userStore from '../../redux/userStore'
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -40,12 +41,16 @@ const Register = () => {
       registerServices
         .register(newUserObject)
         .then(() => {
-          setEmail('')
-          setUsername('')
-          setPassword('')
-          setRepeatPassword('')
-          alert('You have successfully registered please log in to play!')
-          history.push('/')
+          userStore.dispatch({
+            type: 'LOGIN_USER',
+            data: {
+              username: newUserObject.username
+            }
+          })
+          history.push('/gameslobby')
+        })
+        .catch(error => {
+          history.push('register')
         })
     }
   }
