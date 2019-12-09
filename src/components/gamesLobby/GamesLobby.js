@@ -7,9 +7,11 @@ import './gamesLobby.css'
 import ChatBox from '../chat/chat.jsx'
 import userStore from '../../redux/userStore'
 
+
+
 const GamesLobby = () => {
   const [games, setGames] = useState(null)
-
+  
   const gamesArray = [
     {
       id: 1,
