@@ -5,6 +5,9 @@ import userStore from '../../redux/userStore'
 import io from 'socket.io-client';
 
 const HOST = window.location.hostname;
+console.log(HOST)
+    let lastIndex = HOST.lastIndexOf("/");
+    HOST = HOST.substr(0,lastIndex);
 const socket = io(HOST)
 
 
