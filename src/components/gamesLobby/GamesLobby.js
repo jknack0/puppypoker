@@ -10,37 +10,12 @@ import userStore from '../../redux/userStore'
 
 const GamesLobby = () => {
 
-  const [games, setGames] = useState(null)
-  
-  const gamesArray = [
-    {
-      id: 1,
-      players: 5,
-    },
-    {
-      id: 2,
-      players: 3,
-    },
-    {
-      id: 3,
-      players: 7,
-    },
-    {
-      id: 4,
-      players: 9,
-    },
-    {
-      id: 5,
-      players: 5,
-    },
-  ]
-
+  const [games, setGames] = useState('null')
 
   useEffect(() => {
     if(userStore.getState().username === '') {
       history.push('/login')
     }
-    console.log('in use effect')
     
     gamesLobbyServices
       .getAllGames()

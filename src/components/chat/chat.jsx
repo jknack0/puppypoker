@@ -4,11 +4,8 @@ import './chat.css'
 import userStore from '../../redux/userStore'
 import io from 'socket.io-client';
 
-const HOST = window.location.hostname;
-console.log(HOST)
-    let lastIndex = HOST.lastIndexOf("/");
-    HOST = HOST.substr(0,lastIndex);
-const socket = io(HOST)
+
+const socket = io('http://localhost:3002')
 
 
 class ChatBox extends Component {
