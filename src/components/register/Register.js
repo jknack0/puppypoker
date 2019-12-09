@@ -50,7 +50,7 @@ const Register = () => {
           history.push('/gameslobby')
         })
         .catch(error => {
-          history.push('register')
+          history.push('/register')
         })
     }
   }

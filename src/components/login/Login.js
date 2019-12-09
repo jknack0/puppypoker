@@ -36,7 +36,7 @@ const Login = () => {
           history.push('/gameslobby')
         })
         .catch(error => {
-          console.log('error')
+          console.log(error)
         })
       }
   }

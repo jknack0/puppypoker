@@ -1,13 +1,12 @@
 import axios from 'axios'
-const baseUrl = ''
 
 const getAllGames = () => {
-  const request =  axios.get('getGames')
+  const request =  axios.get('gameslobby/getGames')
   return request.then(response => response.data)
 }
 
 const createNewGame = () => {
-  const request = axios.post('createGame')
+  const request = axios.post('gameslobby/createGame')
   return request.then(response => response.data0)
 }
 
