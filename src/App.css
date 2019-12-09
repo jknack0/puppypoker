@@ -50,17 +50,6 @@ a {
 text-decoration: none;
 }
 
-#games-lobby-items{
-padding-top: 10px;
-font-size: 1.2em;
-}
-
-#games-lobby-items button {
-background: rgb(84, 206, 84);
-padding: 5px;
-border-radius: 20px;
-}
-
 .user-input input {
 margin-bottom: 4%;
 padding: 15px;
@@ -93,14 +82,14 @@ width: 30vw;
 width: 105px;
 height: 80px;
 padding: 0px;
-margin: 5px;
+margin-top: 0px;
 }
 
 .play-text-info{
 margin: auto;
 border-width: 1px;
 text-align: center;
-width: 100px;
+width: 140px;
 height: 40px;
 padding-left: 10px;
 border-style: solid;
@@ -112,7 +101,7 @@ background-color: black;
 color: white;
 float:left;
 position: absolute;
-top: 60px;
+top: 80px;
 opacity: .8;
 }
 
@@ -121,8 +110,14 @@ opacity: .5 !important;
 }
 
 #hole-card{
-width: 50px;
+padding:0px;
+margin:0px;
+width: 70px;
 z-index: -1;
+}
+
+#card{
+  width: 140px;
 }
 
 #community-cards{
@@ -160,32 +155,32 @@ left: 74%;
 
 #player1{
 position: absolute;
-left: 90%;
+left: 88%;
 top: 15%;
 }
 
 #player2{
 position: absolute;
-left: 90%;
+left: 88%;
 top: 50%;
 }
 
 #player3{
 position: absolute;
 left: 70%;
-top: 64%;
+top: 61%;
 }
 
 #player4{
 position: absolute;
 left: 46%;
-top: 64%;
+top: 61%;
 }
 
 #player5{
 position: absolute;
 left: 24%;
-top: 64%;
+top: 61%;
 }
 
 #player6{
