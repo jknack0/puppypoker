@@ -40,6 +40,7 @@ const GamesLobby = () => {
     return (
       <div>
         {games.map(game =><GameTile gameId={game.id} players={game.player_count} /> )}
+        <ChatBox />
       </div>
     )
   }
