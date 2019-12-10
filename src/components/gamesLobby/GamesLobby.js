@@ -5,27 +5,32 @@ import {Link} from 'react-router-dom'
 import './gamesLobby.css'
 import ChatBox from '../chat/chat.jsx'
 import userStore from '../../redux/userStore'
+import GameTile from './GameTile'
 
 
 
 const GamesLobby = () => {
 
-  const [games, setGames] = useState('null')
+  const [games, setGames] = useState(null)
 
   useEffect(() => {
-    if(userStore.getState().username === '') {
+    /*if(userStore.getState().username === '') {
       history.push('/login')
-    }
+    }*/
     
     gamesLobbyServices
       .getAllGames()
       .then(currentGames => {
         setGames(currentGames)
+        console.log(games)
       })
       .catch(error => {
         console.log(error)
       })
   }, [])
+
+  console.log(games)
+
 
   if(games === null) {
     return (
@@ -33,17 +38,9 @@ const GamesLobby = () => {
     )
   } else {
     return (
-      <div className='game-lobby-container'>
-        <div className='userInfo'>
-          {userBox()}
-        </div>
-        <div className='chat'>
-            <ChatBox/>
-        </div> 
-        <div className='games'>
-            {gameBoxes()}
-        </div>
-  
+      <div>
+        {games.map(game =><GameTile gameId={game.id} players={game.player_count} /> )}
+        <ChatBox />
       </div>
     )
   }

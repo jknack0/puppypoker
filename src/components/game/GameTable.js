@@ -20,20 +20,15 @@ const GameTable = ({match}) => {
 
   useEffect(() => {
 
-    setGameState(gameobject)
-
     socket.emit('join',gameId)
-    setGameState(gameobject)
-    /*
     gameServices
-
     .getGameState(gameId)
     .then(initialGameState => {
       setGameState(initialGameState)
     })
     .catch(error => {
       console.log(error)
-    })*/
+    })
   },[])
 
   if(gameState === null){
