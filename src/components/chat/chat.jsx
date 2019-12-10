@@ -25,7 +25,13 @@ class ChatBox extends Component {
     //to alter the chatMsg component
     handleSubmit = (event) => {
         event.preventDefault();
-        socket.emit('income-msg',{msg: this.state.userMessage, user: userStore.getState().username})
+        if(this.state.userMessage.length !== 0)
+        {
+            socket.emit('income-msg',{msg: this.state.userMessage, user: userStore.getState().username});
+            this.setState({
+                userMessage: ''
+            });
+        }
     }
     
     //SW - this function updated the userMessage when the form get updated 
@@ -47,34 +53,23 @@ class ChatBox extends Component {
         {
             this.chat.scrollTop = this.chat.scrollHeight;
         }
-        
-        
     }
+
     componentWillMount(){
         socket.on('chat',({incomeMsg, user})=>{
-
-            this.state.chatMsgs.push(<ChatMsg username={user.charAt(0).toUpperCase() + user.slice(1)} msg={incomeMsg}></ChatMsg>)
-            
+            this.state.chatMsgs.push(<ChatMsg username={user.charAt(0).toUpperCase() + user.slice(1)} msg={incomeMsg}></ChatMsg>);
             this.setState({
-                userMessage: ''
+                income: 1
             });
-            
-            
         })
     }
     
-
     render() { 
-       
-        
-        
-
         return (
         <div className='wrapper'>
             <div className='content'>
                 <div id='chat-container'>
                     <div id='chat'>
-                        
                         {this.state.chatMsgs}
                     </div>
                     <form id='chatForm' onSubmit={this.handleSubmit} autoComplete='off'>
