@@ -20,6 +20,7 @@ const GamesLobby = () => {
     gamesLobbyServices
       .getAllGames()
       .then(currentGames => {
+        console.log(currentGames)
         setGames(currentGames)
       })
       .catch(error => {

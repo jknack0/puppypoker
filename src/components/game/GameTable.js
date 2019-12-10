@@ -20,8 +20,6 @@ const GameTable = ({match}) => {
 
   useEffect(() => {
 
-    setGameState(gameobject)
-
     socket.emit('join',gameId)
     setGameState(gameobject)
     /*
