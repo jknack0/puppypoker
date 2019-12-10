@@ -36,14 +36,7 @@ const Login = () => {
           history.push('/gameslobby')
         })
         .catch(error => {
-          userStore.dispatch({
-            type: 'LOGIN_USER',
-            data: {
-              username: loginObject.username
-            }
-          })
-          //alert('User not found, please try again.')
-          history.push('/gameslobby')
+          console.log(error)
         })
       }
   }

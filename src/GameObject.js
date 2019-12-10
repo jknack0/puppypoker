@@ -6,12 +6,12 @@ const gameobject = {
   ],
   players: [
     {
-      username: "player1",
+      username: "fuck",
       isInHand: true,
       chipCount: 200,
       currentBet:0,
       holeCards: [
-        "AC", "AC"
+        "KC", "QC"
       ]
     },
     {
@@ -20,7 +20,7 @@ const gameobject = {
       chipCount : 200,
       currentBet: 0,
       holeCards: [
-        "AC", "AC"
+        "2P", "2C"
       ]
     },
     {
@@ -29,7 +29,7 @@ const gameobject = {
       chipCount: 200,
       currentBet: 0,
       holeCards: [
-        "AC", "AC"
+        "3C", "3C"
       ]
     },
     {
@@ -38,7 +38,7 @@ const gameobject = {
       chipCount: 200,
       currentBet: 0,
       holeCards: [
-        "AC", "AC"
+        "KC", "KC"
       ]
     },
     {
@@ -47,7 +47,7 @@ const gameobject = {
       chipCount: 200,
       currentBet: 0,
       holeCards: [
-        "AC", "AC"
+        "QC", "QW"
       ]
     },
     {
@@ -56,7 +56,7 @@ const gameobject = {
       chipCount: 200,
       currentBet: 0,
       holeCards: [
-        "AC", "AC"
+        "AW", "KW"
       ]
     },
     {

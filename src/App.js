@@ -8,6 +8,9 @@ import {Router, Switch, Route} from 'react-router-dom'
 import history from './history/history'
 import './App.css'
 
+//Amir 
+import chat from './components/chat/chat'
+
 const App = () => {
 
   return (
@@ -19,6 +22,7 @@ const App = () => {
           <Route path="/register" component={Register} />
           <Route path="/gameslobby" exact component={GamesLobby} />
           <Route path="/gameslobby/:id" component={GameTable} />
+          <Route path="/chat" component={chat} />
         </Switch>
       </div>
     </Router>

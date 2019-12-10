@@ -4,20 +4,36 @@ import CommunityCards from './CommunityCards'
 import gameobject from '../../GameObject'
 import PlayerTurnMenu from './PlayerTurnMenu'
 import gameServices from '../../services/gameTable'
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:3002')
+
+
+socket.on('gameState',(data)=>{
+  console.log(data)
+})
+
 
 const GameTable = ({match}) => {
   const [gameState, setGameState] = useState(null)
   const gameId = match.params.id
 
   useEffect(() => {
+
+    setGameState(gameobject)
+
+    socket.emit('join',gameId)
+    setGameState(gameobject)
+    /*
     gameServices
+
     .getGameState(gameId)
     .then(initialGameState => {
       setGameState(initialGameState)
     })
     .catch(error => {
       console.log(error)
-    })
+    })*/
   },[])
 
   if(gameState === null){
@@ -27,7 +43,7 @@ const GameTable = ({match}) => {
   } else {
     return (
       <div id="table">
-        {gameState.players.map((player, index) => <Player key={player.username} player={player} index={index} />)}
+        {gameState.players.map((player, index) => <Player key={player.username} player={player} index={index} gameId={gameId} />)}
         <CommunityCards cards={gameState.communityCards} currentBettingRound={gameState.currentBettingRound} />
         <PlayerTurnMenu isRaised={gameState.isRaised} gameId={gameId} />
       </div>
