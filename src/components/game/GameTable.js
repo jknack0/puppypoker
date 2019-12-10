@@ -8,7 +8,6 @@ import io from 'socket.io-client';
 
 const socket = io('http://localhost:3002')
 
-
 socket.on('gameState',(data)=>{
   console.log(data)
 })
