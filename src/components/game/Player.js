@@ -5,9 +5,10 @@ import playerServices from '../../services/player'
 const Player = ({player, index, gameId}) => {
   const joinGame = (event) => {
     event.preventDefault()
-    
+    console.log(index)
+
     playerServices
-    .joinGame(gameId)
+    .joinGame(gameId, index)
     .then(() => {
       console.log('success')
     })

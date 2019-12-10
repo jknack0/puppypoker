@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const getAllGames = () => {
-  const request =  axios.get('gameslobby/getGames')
+  const request =  axios.get('gameslobby/allGames')
   return request.then(response => response.data)
 }
 
