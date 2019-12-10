@@ -15,54 +15,40 @@
     }
 
 .enter-game-button{
-        position: relative;
-        margin-left: 20%;
-        top: 5vh;
-        left: 40vh;
-        height: 15vh;
-        font-size: 2.4vh;
-        font-weight: bold;
-        background:rgb(245, 224, 53);
-        border: 3px solid white;
-        border-radius: 3px;
+position: relative;
+margin-left: 20%;
+top: 5vh;
+left: 40vh;
+height: 15vh;
+font-size: 2.4vh;
+font-weight: bold;
+background:rgb(245, 224, 53);
+border: 3px solid white;
+border-radius: 3px;
 }
-        
-.barks-send-button{
-        position: relative;
-        margin-left: 20%;
-        top: 51.4vh;
-        left: 12.6vh;
-        height: 6.1vh;
-        font-size: 14px;
-        font-weight: bold;
-        background:rgb(245, 224, 53);
-        border: 3px solid white;
-        border-radius: 3px;
-}
-
 
 .settings{
-            position: relative;
-            bottom: 3vh;
-            width: 28vh;
-            height: 3.5vh;
-            font-size: 2vh;
-            font-weight: bold;
-            background:rgb(185, 185, 185);
-            border: 3px solid white;
-            border-radius: 3px;
+position: relative;
+bottom: 3vh;
+width: 28vh;
+height: 3.5vh;
+font-size: 2vh;
+font-weight: bold;
+background:rgb(185, 185, 185);
+border: 3px solid white;
+border-radius: 3px;
 }
 
 .create-game{
-            position: relative;
-            bottom: 2vh;
-            width: 28vh;
-            height: 3.5vh;
-            font-size: 2vh;
-            font-weight: bold;
-            background:rgb(185, 185, 185);
-            border: 3px solid white;
-            border-radius: 3px;
+position: relative;
+bottom: 2vh;
+width: 28vh;
+height: 3.5vh;
+font-size: 2vh;
+font-weight: bold;
+background:rgb(185, 185, 185);
+border: 3px solid white;
+border-radius: 3px;
 }
 
 #profile-logo {
@@ -72,27 +58,13 @@
     width: 16vh;
 }
 
-.barks-box{
-    position: relative;
-    right: 9vh;
-    top: 58vh;
-    width: 22vh;
-    height: 2vh;
-    font-size: 2vh;
-    font-weight: bold;
-    background:rgb(185, 185, 185);
-    border: 3px solid white;
-    border-radius: 3px;
-    
-}
-
 .userInfo{
-        position: relative;
-        display: block;
-        float:left;
-        border-right: 3px solid white;
-        height: 100vh;
-        width: 40vh;
+position: relative;
+display: block;
+float: left;
+border-right: 3px solid white;
+height: 100vh;
+width: 30vh;
         
 }
 
@@ -106,40 +78,41 @@ top: 30vh
 }
             
 .games{
-            /* float: right; */
-            position:absolute;
-            /* border-left: 1px solid black; */
-            height: 100vh;
-            width: 70vw;
-            left: 30vh;
+/* float: right; */
+position:absolute;
+/* border-left: 1px solid black; */
+height: 100vh;
+width: 70vw;
+left: 30vh;
 }
             
 .log-out{
-            position: relative;
-            bottom: 4vh;
-            width: 28vh;
-            height: 3.5vh;
-            font-size: 2vh;
-            font-weight: bold;
-            background:rgb(185, 185, 185);
-            border: 3px solid white;
-            border-radius: 3px;
+position: relative;
+bottom: 4vh;
+width: 28vh;
+height: 3.5vh;
+font-size: 2vh;
+font-weight: bold;
+background:rgb(185, 185, 185);
+border: 3px solid white;
+border-radius: 3px;
+
 }
 
 .lobby-username{
-                position: relative;
-                top: 6vh;
-                left: 5vh;
-                color: white;
-                font-family: Arial;
+position: relative;
+top: 6vh;
+left: 5vh;
+color: white;
+font-family: Arial;
                 
 }
 
 .winnings{
-                position: relative;
-                top: 7vh;
-                left: 5vh;
-                color: white;
-                font-size: 19px;
-                font-family: Arial;
+position: relative;
+top: 7vh;
+left: 5vh;
+color: white;
+font-size: 19px;
+font-family: Arial;
 }
