@@ -6,7 +6,7 @@ import PlayerTurnMenu from './PlayerTurnMenu'
 import gameServices from '../../services/gameTable'
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:3002')
+const socket = io()
 
 
 socket.on('gameState',(data)=>{
@@ -18,9 +18,14 @@ const GameTable = ({match}) => {
   const [gameState, setGameState] = useState(null)
   const gameId = match.params.id
 
+  socket.on('gameState',(data) => {
+    setGameState(data)
+  })
+
   useEffect(() => {
 
     socket.emit('join',gameId)
+    
     gameServices
     .getGameState(gameId)
     .then(initialGameState => {
