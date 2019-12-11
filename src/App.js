@@ -24,6 +24,7 @@ const App = () => {
           <Route path="/gameslobby/:id" component={GameTable} />
           <Route path="/chat" component={chat} />
         </Switch>
+        
       </div>
     </Router>
   )
