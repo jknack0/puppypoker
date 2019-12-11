@@ -43,7 +43,7 @@ const GameTable = ({match}) => {
     return (
       <div id="table">
         {gameState.players.map((player, index) => <Player key={player.username} player={player} index={index} gameId={gameId} />)}
-        <CommunityCards cards={gameState.communityCards} currentBettingRound={gameState.currentBettingRound} />
+        <CommunityCards cards={gameState.community_cards} currentBettingRound={gameState.currentBettingRound} />
         <PlayerTurnMenu isRaised={gameState.isRaised} gameId={gameId} />
       </div>
     )
