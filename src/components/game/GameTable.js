@@ -8,7 +8,6 @@ import io from 'socket.io-client';
 
 const socket = io()
 
-
 socket.on('gameState',(data)=>{
   console.log(data)
 })
