@@ -5,9 +5,9 @@ const getAllGames = () => {
   return request.then(response => response.data)
 }
 
-const createNewGame = () => {
-  const request = axios.post('gameslobby/createGame')
-  return request.then(response => response.data0)
+const createNewGame = (username) => {
+  const request = axios.post(`gameslobby/${username}/createGame`)
+  return request.then(response => response.data)
 }
 
 export default {getAllGames, createNewGame}

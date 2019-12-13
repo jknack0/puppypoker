@@ -33,6 +33,7 @@ const Login = () => {
               username: loginObject.username
             }
           })
+          localStorage.setItem('username', loginObject.username)
           history.push('/gameslobby')
         })
         .catch(error => {

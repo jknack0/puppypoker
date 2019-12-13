@@ -10,8 +10,23 @@ import GameTile from './GameTile'
 
 
 const GamesLobby = () => {
-
   const [games, setGames] = useState(null)
+
+  const createGame = () => {
+    gamesLobbyServices
+    .createNewGame(userStore.getState().username)
+    .then(gameId => {
+      history.push(`/gameslobby/${gameId}`)
+    })
+  }
+
+  console.log(localStorage.getItem('username'))
+
+  const logoutUser = () => {
+    userStore.dispatch({type: 'LOGOUT_USER'})
+    localStorage.removeItem('username')
+    history.push('/')
+  }
 
   useEffect(() => {
     /*if(userStore.getState().username === '') {
@@ -22,23 +37,26 @@ const GamesLobby = () => {
       .getAllGames()
       .then(currentGames => {
         setGames(currentGames)
-        console.log(games)
       })
       .catch(error => {
         console.log(error)
       })
   }, [])
 
-  console.log(games)
-
 
   if(games === null) {
     return (
-      <h2>Loading...</h2>
+      <>
+        <button onClick={createGame}>Create Game</button>
+        <button onClick={logoutUser}>Logout</button>
+        <h2>Loading...</h2>
+      </>
     )
   } else {
     return (
       <div>
+        <button onClick={createGame}>Create Game</button>
+        <button onClick={logoutUser}>Logout</button>
         {games.map(game =><GameTile gameId={game.id} players={game.player_count} /> )}
         <ChatBox />
       </div>

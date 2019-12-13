@@ -6,12 +6,23 @@ import GameTable from './components/game/GameTable'
 import LandingPage from './components/landing/LandingPage'
 import {Router, Switch, Route} from 'react-router-dom'
 import history from './history/history'
+import userStore from './redux/userStore'
 import './App.css'
 
 //Amir 
 import chat from './components/chat/chat'
 
 const App = () => {
+
+  if(localStorage.getItem('username')){
+    userStore.dispatch({
+      type: 'LOGIN_USER',
+      data: {
+        username: localStorage.getItem('username')
+      }
+    })
+    history.push('/gameslobby')
+  }
 
   return (
     <Router history={history}>
