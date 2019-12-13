@@ -5,6 +5,8 @@ import gameobject from '../../GameObject'
 import PlayerTurnMenu from './PlayerTurnMenu'
 import gameServices from '../../services/gameTable'
 import io from 'socket.io-client';
+import LeaveButton from './LeaveButton'
+import userStore from '../../redux/userStore'
 
 const socket = io()
 
@@ -15,16 +17,18 @@ socket.on('gameState',(data)=>{
 
 const GameTable = ({match}) => {
   const [gameState, setGameState] = useState(null)
+  const [players, setPlayers] = useState(null)
   const gameId = match.params.id
-
+  
   socket.on('gameState',(data) => {
     setGameState(data)
   })
+  socket.emit('join',gameId)
+  
+
+  
 
   useEffect(() => {
-
-    socket.emit('join',gameId)
-    
     gameServices
     .getGameState(gameId)
     .then(initialGameState => {
@@ -42,6 +46,7 @@ const GameTable = ({match}) => {
   } else {
     return (
       <div id="table">
+        <LeaveButton gameId={gameId} username={userStore.getState().username} playerIndex='1' />
         {gameState.players.map((player, index) => <Player key={player.username} player={player} index={index} gameId={gameId} />)}
         <CommunityCards cards={gameState.community_cards} currentBettingRound={gameState.currentBettingRound} />
         <PlayerTurnMenu isRaised={gameState.isRaised} gameId={gameId} />

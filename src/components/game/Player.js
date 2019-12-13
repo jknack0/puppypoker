@@ -3,10 +3,7 @@ import Card from './Card'
 import playerServices from '../../services/player'
 
 const Player = ({player, index, gameId}) => {
-  const joinGame = (event) => {
-    event.preventDefault()
-    console.log(index)
-
+  const joinGame = () => {
     playerServices
     .joinGame(gameId, index)
     .then(() => {
@@ -16,6 +13,8 @@ const Player = ({player, index, gameId}) => {
       console.log(error)
     })
   }
+
+  console.log(player)
 
   if(player.username === null) {
     return(

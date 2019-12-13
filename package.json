@@ -12,7 +12,7 @@
     "redux": "^4.0.4",
     "socket.io-client": "^2.3.0"
   },
-  "proxy": "http://10.143.112.134:3001/",
+  "proxy": "http://10.143.124.212:3001",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
