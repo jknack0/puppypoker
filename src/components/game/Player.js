@@ -22,7 +22,7 @@ const Player = ({player, index, gameId}) => {
         <button className="join-button" onClick={joinGame}>Join Game</button>
       </div>
     )
-  } else if (player.isInHand) {
+  } else if (player.isInHand && player.username === localStorage.getItem('username')) {
     return (
       <div className="player" id={`player${index}`}>
         <div id="card">
@@ -38,7 +38,23 @@ const Player = ({player, index, gameId}) => {
         </div>
       </div>
     )
-  } else {
+  } else if (player.isInHand) {
+    return (
+      <div className="player" id={`player${index}`}>
+        <div id="card">
+          {player.holeCards.map((card, i) => <img src='gameslobby/resources/backOfCard.png' id='hole-card'/>)}
+        </div>
+        <div className="play-text-info">
+          <div>
+            {player.username}
+          </div>
+          <div>
+            Chips: {player.chipCount}
+          </div>
+        </div>
+      </div>
+    )
+    } else {
     return (
       <div className="not-in-hand" id={`player${index}`}>
         <div className="play-text-info">
