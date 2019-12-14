@@ -7,7 +7,7 @@ const leaveGame = (gameId, username, playerIndex) => {
   const socket = io()
   axios.post(`${gameId}/${username}/leave`)
   .then(response => {
-    socket.emit('disconnect')
+    socket.emit('leaveRoom', gameId)
     history.push('/gameslobby')
   })
   .catch(error => {
