@@ -10,24 +10,20 @@ import userStore from '../../redux/userStore'
 
 const socket = io()
 
-socket.on('gameState',(data)=>{
-  console.log(data)
-})
+
 
 
 const GameTable = ({match}) => {
   const [gameState, setGameState] = useState(null)
-  const [players, setPlayers] = useState(null)
   const gameId = match.params.id
   
   socket.on('gameState',(data) => {
     setGameState(data)
+    console.log(data)
   })
+  
   socket.emit('join',gameId)
   
-
-  
-
   useEffect(() => {
     gameServices
     .getGameState(gameId)
