@@ -5,7 +5,9 @@ import userStore from '../../redux/userStore'
 import io from 'socket.io-client';
 
 
-const socket = io()
+const socket = io();
+
+
 
 
 class ChatBox extends Component {
@@ -17,10 +19,13 @@ class ChatBox extends Component {
             chatMsgs: messages,
             userMessage: '',
             income: 0,
-            path: ''
+            path: '',
+            perPath: ''
         }
        this.chat = 'none';
     }
+
+   
 
     //SW - this is where the new message component get created, you will be able to update the username and msg property 
     //to alter the chatMsg component
@@ -49,6 +54,7 @@ class ChatBox extends Component {
         console.log(window.location.href)
         console.log(window.location.pathname)
         if(window.location.pathname === '/gameslobby'){
+    
         socket.emit('join',window.location.pathname)
         }else{
         socket.emit('leaveRoom', ({path: '/gameslobby'}))    
@@ -57,6 +63,7 @@ class ChatBox extends Component {
     }
 
     componentDidUpdate() {
+       
         if(this.chat.scrollHeight !== null)
         {
             this.chat.scrollTop = this.chat.scrollHeight;
@@ -72,14 +79,14 @@ class ChatBox extends Component {
             });
         })
     }
-    
 
+  
 
     render() { 
 
         
         return (
-        <div className='wrapper'>
+        <div  className='wrapper'>
             <div className='content'>
                 <div id='chat-container'>
                     <div id='chat'>
@@ -97,5 +104,14 @@ class ChatBox extends Component {
         );
     }
 }
+
  
 export default ChatBox;
+
+
+export function leaveRoom(){
+
+    socket.emit('leaveRoom', ({path: window.location.pathname }))
+
+}
+

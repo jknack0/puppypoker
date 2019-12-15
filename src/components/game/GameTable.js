@@ -19,7 +19,6 @@ const GameTable = ({match}) => {
   
   socket.on('gameState',(data) => {
     setGameState(data)
-    console.log(data)
   })
   
   
@@ -55,3 +54,9 @@ const GameTable = ({match}) => {
 }
 
 export default GameTable
+
+export function leaveGameRoom(gameid){
+
+  socket.emit('leaveRoom', ({path: gameid }))
+
+}
