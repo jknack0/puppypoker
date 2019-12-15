@@ -7,6 +7,7 @@ import gameServices from '../../services/gameTable'
 import io from 'socket.io-client';
 import LeaveButton from './LeaveButton'
 import userStore from '../../redux/userStore'
+import ChatBox from '../chat/chat.jsx'
 const socket = io()
 
 
@@ -18,8 +19,8 @@ const GameTable = ({match}) => {
   
   socket.on('gameState',(data) => {
     setGameState(data)
-    console.log(data)
   })
+  
   
   
   
@@ -46,9 +47,16 @@ const GameTable = ({match}) => {
         {gameState.players.map((player, index) => <Player key={player.username} player={player} index={index} gameId={gameId} />)}
         <CommunityCards cards={gameState.community_cards} currentBettingRound={gameState.betting_round} />
         <PlayerTurnMenu isRaised={gameState.isRaised} gameId={gameId} />
+        <ChatBox />
       </div>
     )
   }
 }
 
 export default GameTable
+
+export function leaveGameRoom(gameid){
+
+  socket.emit('leaveRoom', ({path: gameid }))
+
+}

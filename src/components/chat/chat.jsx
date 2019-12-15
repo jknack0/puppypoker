@@ -5,7 +5,9 @@ import userStore from '../../redux/userStore'
 import io from 'socket.io-client';
 
 
-const socket = io()
+const socket = io();
+
+
 
 
 class ChatBox extends Component {
@@ -16,10 +18,14 @@ class ChatBox extends Component {
         this.state = {
             chatMsgs: messages,
             userMessage: '',
-            income: 0
+            income: 0,
+            path: '',
+            perPath: ''
         }
        this.chat = 'none';
     }
+
+   
 
     //SW - this is where the new message component get created, you will be able to update the username and msg property 
     //to alter the chatMsg component
@@ -27,7 +33,7 @@ class ChatBox extends Component {
         event.preventDefault();
         if(this.state.userMessage.length !== 0)
         {
-            socket.emit('income-msg',{msg: this.state.userMessage, user: userStore.getState().username});
+            socket.emit('income-msg',{msg: this.state.userMessage, user: userStore.getState().username, path: window.location.pathname});
             this.setState({
                 userMessage: ''
             });
@@ -45,14 +51,24 @@ class ChatBox extends Component {
 
     componentDidMount() {
         this.chat = document.getElementById('chat');
-        socket.emit('join','lobby')
+        console.log(window.location.href)
+        console.log(window.location.pathname)
+        if(window.location.pathname === '/gameslobby'){
+    
+        socket.emit('join',window.location.pathname)
+        }else{
+        socket.emit('leaveRoom', ({path: '/gameslobby'}))    
+        socket.emit('join',window.location.pathname)    
+        }
     }
 
     componentDidUpdate() {
+       
         if(this.chat.scrollHeight !== null)
         {
             this.chat.scrollTop = this.chat.scrollHeight;
         }
+        
     }
 
     componentWillMount(){
@@ -63,17 +79,21 @@ class ChatBox extends Component {
             });
         })
     }
-    
+
+  
+
     render() { 
+
+        
         return (
-        <div className='wrapper'>
+        <div  className='wrapper'>
             <div className='content'>
                 <div id='chat-container'>
                     <div id='chat'>
                         {this.state.chatMsgs}
                     </div>
                     <form id='chatForm' onSubmit={this.handleSubmit} autoComplete='off'>
-                        <input type='text' className='chat-input'placeholder='message' message='userMessage' value={this.state.userMessage} onChange={this.handleInputChange}></input>
+                        <input type='text' className='chat-input'placeholder='message' message='userMessage' value={this.state.userMessage} onChange={this.handleInputChange} ></input>
                     </form>
                     {this.state.chatMsgs}
                 </div>
@@ -84,5 +104,14 @@ class ChatBox extends Component {
         );
     }
 }
+
  
 export default ChatBox;
+
+
+export function leaveRoom(){
+
+    socket.emit('leaveRoom', ({path: window.location.pathname }))
+
+}
+
