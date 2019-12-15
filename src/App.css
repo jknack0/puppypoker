@@ -395,4 +395,57 @@ background-color: rgb(160, 199, 160);
 
 #leave-button:hover {
   background-color: rgb(160, 199, 160);
-  }
+}
+
+.gameslobby-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+#gameslobby-user-menu{
+  position: absolute;
+  height: 30vh;
+  width: 30vw;
+}
+
+.gameslobby-games-tiles button{ 
+  left: 28%;
+  margin-top: 10px;
+  margin: 3px;
+  width: 160px;
+  height: 60px;
+  font-size: 25px;
+  background:rgb(185, 185, 185);
+  border: 3px solid white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.gameslobby-games-tiles button:hover {
+  border-color: black;
+}
+
+.chat-container {
+  position: absolute;
+  top: 30vh;
+  width: 30vw;
+  height: 70vh;
+}
+
+.gameslobby-games-tiles {
+  padding: 1%;
+  position: absolute;
+  left: 30vw;
+  width: 60vw;
+} 
+
+.gameslobby-games-tiles h2{
+  font-weight: 600;
+  font-size: 30px;
+  margin-bottom: 10px;
+} 
+
+.game-tile {
+  padding-bottom: 10px;
+  font-size: 20px;
+}
