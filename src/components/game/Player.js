@@ -1,18 +1,25 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Card from './Card'
 import playerServices from '../../services/player'
 
 const Player = ({player, index, gameId}) => {
+  const [playerState, setPlayerState] = useState(player)
+  
   const joinGame = () => {
     playerServices
     .joinGame(gameId, index)
     .then(() => {
-      console.log('success')
+      console.log('successful join')
     })
     .catch(error => {
       console.log(error)
     })
   }
+
+  useEffect(() => {
+    console.log(player)
+    setPlayerState(player)
+  }, [player])
 
   console.log(player)
 

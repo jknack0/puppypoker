@@ -45,7 +45,7 @@ const GameTable = ({match}) => {
         <h2>{gameState.pot_amount}</h2>
         <LeaveButton gameId={gameId} username={userStore.getState().username} playerIndex='1' />
         {gameState.players.map((player, index) => <Player key={player.username} player={player} index={index} gameId={gameId} />)}
-        <CommunityCards cards={gameState.community_cards} currentBettingRound={gameState.currentBettingRound} />
+        <CommunityCards cards={gameState.community_cards} currentBettingRound={gameState.betting_round} />
         <PlayerTurnMenu isRaised={gameState.isRaised} gameId={gameId} />
         <ChatBox />
       </div>

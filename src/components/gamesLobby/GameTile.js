@@ -5,7 +5,7 @@ const GameTile = ({gameId, players}) => {
   const address = `gameslobby/${gameId}`
 
   return (
-    <div>
+    <div className='game-tile'>
       Game:{gameId} Players: {players}/9 <Link to={address}>Join</Link>
     </div>
   )

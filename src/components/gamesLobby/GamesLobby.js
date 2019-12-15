@@ -36,7 +36,7 @@ const GamesLobby = () => {
     gamesLobbyServices
       .getAllGames()
       .then(currentGames => {
-        setGames(currentGames)
+          setGames(currentGames)
       })
       .catch(error => {
         console.log(error)
@@ -54,11 +54,20 @@ const GamesLobby = () => {
     )
   } else {
     return (
-      <div>
-        <button onClick={createGame}>Create Game</button>
-        <button onClick={logoutUser}>Logout</button>
-        {games.map(game =><GameTile gameId={game.id} players={game.player_count} /> )}
-        <ChatBox />
+      <div className='gameslobby-container'>
+        <div id='gameslobby-user-menu'>
+          
+        </div>
+        <div className='chat-container'>
+          <ChatBox />
+        </div>
+        <div className='gameslobby-games-tiles'>
+          <h2>Welcome {localStorage.getItem('username')}!</h2>
+          <button onClick={createGame}>Create Game</button>
+          <button onClick={logoutUser}>Logout</button>
+          <h2>Active Games</h2>
+          {games.map(game =><GameTile key={game.id} gameId={game.id} players={game.player_count} /> )} 
+        </div>
       </div>
     )
   }
