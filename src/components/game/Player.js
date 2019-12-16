@@ -17,16 +17,22 @@ const Player = ({player, index, gameId}) => {
   }
 
   useEffect(() => {
-    console.log(player)
     setPlayerState(player)
   }, [player])
 
   console.log(player)
 
-  if(player.username === null) {
-    return(
-      <div id={`player${index}`}>
-        <button className="join-button" onClick={joinGame}>Join Game</button>
+  if(player.username !== null && !player.isInHand) {
+    return (
+      <div className="not-in-hand" id={`player${index}`}>
+        <div className="play-text-info">
+          <div>
+            {player.username}
+          </div>
+          <div>
+            Chips: {player.chipCount}
+          </div>
+        </div>
       </div>
     )
   } else if (player.isInHand && player.username === localStorage.getItem('username')) {
@@ -61,18 +67,15 @@ const Player = ({player, index, gameId}) => {
         </div>
       </div>
     )
-    } else {
-    return (
-      <div className="not-in-hand" id={`player${index}`}>
-        <div className="play-text-info">
-          <div>
-            {player.username}
-          </div>
-          <div>
-            Chips: {player.chipCount}
-          </div>
+    } else if(player.username === null) {
+      return(
+        <div id={`player${index}`}>
+          <div className="join-button" onClick={joinGame}>Join Game</div>
         </div>
-      </div>
+      )
+  } else {
+    return (
+      <div></div>
     )
   }
 }

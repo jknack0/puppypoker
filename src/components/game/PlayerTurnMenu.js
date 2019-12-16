@@ -1,7 +1,9 @@
 import React from 'react'
 import playerTurnServices from '../../services/playerTurnMenu'
 
-const PlayerTurnMenu = ({potRaised, playerTurn, gameId}) => {
+const PlayerTurnMenu = ({isRaised, playerTurn, gameId}) => {
+
+  console.log(playerTurn)
   const handleCheck = () => {
     playerTurnServices
       .check(gameId)
@@ -57,22 +59,31 @@ const PlayerTurnMenu = ({potRaised, playerTurn, gameId}) => {
     })
   }
 
+  console.log('player turn ' + playerTurn)
+  console.log('local storage' + localStorage.getItem('playerposition'))
 
-  if(!potRaised){
-    return (
-      <div className="player-turn-menu">
-        <button onClick={handleCall}>Call</button>
-        <button onClick={handleRaise}>Raise</button>
-        <button onClick={handleFold}>Fold</button>
-      </div>
-    )
+  if(localStorage.getItem('playerposition') == playerTurn) {
+    console.log('inside conditional')
+    if(isRaised >= 0){
+      return (
+        <div className="player-turn-menu">
+          <button onClick={handleCall}>Call</button>
+          <button onClick={handleRaise}>Raise</button>
+          <button onClick={handleFold}>Fold</button>
+        </div>
+      )
+    } else {
+      return (
+        <div className="player-turn-menu">
+          <button onClick={handleCheck}>Check</button>
+          <button onClick={handleBet}>Bet</button>
+          <button onClick={handleFold}>Fold</button>
+        </div>
+      )
+    }
   } else {
     return (
-      <div className="player-turn-menu">
-        <button onClick={handleCheck}>Check</button>
-        <button onClick={handleBet}>Bet</button>
-        <button onClick={handleFold}>Fold</button>
-      </div>
+      <div></div>
     )
   }
 }
