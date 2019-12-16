@@ -2,13 +2,13 @@ import React from 'react'
 import Card from './Card'
 
 const CommunityCards = ({cards, currentBettingRound}) => {
-  if(currentBettingRound === 3) {
+  if(currentBettingRound >= 4) {
     return (
       <div id="community-cards">
         {cards.map((card, i) => <Card key={i} card={card} />)}
       </div>
     )
-  } else if(currentBettingRound === 2) {
+  } else if(currentBettingRound === 3) {
     return (
       <div id="community-cards">
         <Card card={cards[0]} />
@@ -17,7 +17,7 @@ const CommunityCards = ({cards, currentBettingRound}) => {
         <Card card={cards[3]} />
       </div>
     ) 
-  } else if(currentBettingRound === 1) {
+  } else if(currentBettingRound === 2) {
       return (
         <div id="community-cards">
           <Card card={cards[0]} />

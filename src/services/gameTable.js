@@ -5,4 +5,9 @@ const getGameState = (gameId) => {
   return request.then(response => response.data)
 }
 
-export default {getGameState}
+const gameOver = (gameId) => {
+  const request = axios.post(`${gameId}/gameOver`)
+  return request.then(response => response)
+}
+
+export default {getGameState, gameOver}
