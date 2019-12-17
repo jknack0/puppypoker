@@ -23,16 +23,6 @@ const App = () => {
     })
   } 
 
-  if(localStorage.getItem('username') && localStorage.getItem('gameid') === null) {
-    history.push(`/gameslobby`)
-  } else if (localStorage.getItem('username') && localStorage.getItem('gameid')) {
-    history.push(`/gameslobby/${localStorage.getItem('gameid')}`)
-  } else {
-    history.push('/')
-  }
-
-
-
   return (
     <Router history={history}>
       <div id="app">
