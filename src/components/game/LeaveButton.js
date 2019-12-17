@@ -6,6 +6,7 @@ const LeaveButton = ({gameId, username}) => {
 
   const handleLeaveGame = () => {
     leaveButtonServices.leaveGame(gameId, username)
+    localStorage.removeItem('gameid')
   }
 
   return (

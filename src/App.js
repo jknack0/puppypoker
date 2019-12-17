@@ -13,7 +13,7 @@ import './App.css'
 import chat from './components/chat/chat'
 
 const App = () => {
-
+  
   if(localStorage.getItem('username')){
     userStore.dispatch({
       type: 'LOGIN_USER',
@@ -21,8 +21,17 @@ const App = () => {
         username: localStorage.getItem('username')
       }
     })
-    history.push('/gameslobby')
+  } 
+
+  if(localStorage.getItem('username') && localStorage.getItem('gameid') === null) {
+    history.push(`/gameslobby`)
+  } else if (localStorage.getItem('username') && localStorage.getItem('gameid')) {
+    history.push(`/gameslobby/${localStorage.getItem('gameid')}`)
+  } else {
+    history.push('/')
   }
+
+
 
   return (
     <Router history={history}>

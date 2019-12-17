@@ -14,13 +14,17 @@ class ChatBox extends Component {
     
     constructor(props){
         let messages = [];
+        console.log("Props", props.chatClass)
+        
         super(props);
+
         this.state = {
             chatMsgs: messages,
             userMessage: '',
             income: 0,
             path: '',
-            perPath: ''
+            perPath: '',
+            chatclass: props.chatClass
         }
        this.chat = 'none';
     }
@@ -54,9 +58,11 @@ class ChatBox extends Component {
         console.log(window.location.href)
         console.log(window.location.pathname)
         if(window.location.pathname === '/gameslobby'){
+         
     
         socket.emit('join',window.location.pathname)
         }else{
+            
         socket.emit('leaveRoom', ({path: '/gameslobby'}))    
         socket.emit('join',window.location.pathname)    
         }
@@ -83,17 +89,36 @@ class ChatBox extends Component {
   
 
     render() { 
-
+        if(this.state.chatclass === 'lobby'){
+            
+            return (
+                <div  className='wrapper'>
+                    <div className='content'>
+                        <div id='chat-container'>
+                            <div id='chat'>
+                                {this.state.chatMsgs}
+                            </div>
+                            <form id='chatForm' onSubmit={this.handleSubmit} autoComplete='off'>
+                                <input type='text' className='chat-input'placeholder='message' message='userMessage' value={this.state.userMessage} onChange={this.handleInputChange} ></input>
+                            </form>
+                            {this.state.chatMsgs}
+                        </div>
+                        
+                    </div>  
+                </div>
+                
+                );
+        } else {
         
         return (
-        <div  className='wrapper'>
-            <div className='content'>
-                <div id='chat-container'>
+        <div  className='wrapper1'>
+            <div className='content1'>
+                <div id='chat-container1'>
                     <div id='chat'>
                         {this.state.chatMsgs}
                     </div>
                     <form id='chatForm' onSubmit={this.handleSubmit} autoComplete='off'>
-                        <input type='text' className='chat-input'placeholder='message' message='userMessage' value={this.state.userMessage} onChange={this.handleInputChange} ></input>
+                        <input type='text' className='chat-input1'placeholder='message' message='userMessage' value={this.state.userMessage} onChange={this.handleInputChange} ></input>
                     </form>
                     {this.state.chatMsgs}
                 </div>
@@ -102,7 +127,7 @@ class ChatBox extends Component {
         </div>
         
         );
-    }
+    }}
 }
 
  

@@ -3,24 +3,16 @@ import Card from './Card'
 import playerServices from '../../services/player'
 
 const Player = ({player, index, gameId}) => {
-  const [playerState, setPlayerState] = useState(player)
-  
   const joinGame = () => {
     playerServices
     .joinGame(gameId, index)
     .then(() => {
-      console.log('successful join')
+      
     })
     .catch(error => {
       console.log(error)
     })
   }
-
-  useEffect(() => {
-    setPlayerState(player)
-  }, [player])
-
-  console.log(player)
 
   if(player.username !== null && !player.isInHand) {
     return (

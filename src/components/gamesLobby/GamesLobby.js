@@ -59,7 +59,7 @@ const GamesLobby = () => {
           
         </div>
         <div className='chat-container'>
-          <ChatBox />
+          <ChatBox chatClass = "lobby" />
         </div>
         <div className='gameslobby-games-tiles'>
           <h2>Welcome {localStorage.getItem('username')}!</h2>
